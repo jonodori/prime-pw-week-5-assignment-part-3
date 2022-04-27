@@ -23,11 +23,42 @@ console.log(addToCollection('25', 'Adele', '2015'));
 function showCollection(array){
     console.log(array.length);
     for (album of array){ //created a for of loop, instead of for loop to test 
-        console.log(album);
+        console.log(album); //printed out each album in the array 
     }
 }
 
-showCollection(collection); 
+showCollection(collection); // Tested the collection array 
+
+function findByArtist(artist) {
+    let artistSearch = [];
+
+//     for (let i = 0; i < collection.length; i++) {
+//         if (artist === collection[i].artist){
+//             artistSearch.push(collection[i]);    
+//             return artistSearch;        
+//         }        
+//     }
+//         return artistSearch;
+// }
+
+    for (album of collection){ 
+        if (artist === album.artist){
+            artistSearch.push(album);
+            return artistSearch;
+        }        
+    }
+    return artistSearch;
+}    
+
+console.log(findByArtist('Kanye West')); 
+console.log(findByArtist('Taylor Swift')); 
+console.log(findByArtist('Jimmy Eat World'));
+
+
+
+
+
+
 
 
 
