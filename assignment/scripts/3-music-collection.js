@@ -23,7 +23,7 @@ console.log(addToCollection('25', 'Adele', '2015'));
 function showCollection(array){
     console.log(array.length);
     for (album of array){ //created a for of loop, instead of for loop to test 
-        console.log(album); //printed out each album in the array 
+        console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`);
     }
 }
 
@@ -53,6 +53,28 @@ function findByArtist(artist) {
 console.log(findByArtist('Kanye West')); 
 console.log(findByArtist('Taylor Swift')); 
 console.log(findByArtist('Jimmy Eat World'));
+
+
+function search(artist, year){
+    let searchArray = [];
+    // let searchObject = {
+    //     artist: artist,
+    //     year: year,
+    // }
+
+    for (album of collection) {
+        if (artist === album.artist && year === album.yearPublished){
+        searchArray.push(album);
+        return searchArray;
+    }    
+        else  if(artist === undefined && year === undefined){
+            return searchArray;
+        }
+
+    }
+}
+
+console.log(search('J Cole', '2009'));
 
 
 
