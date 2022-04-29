@@ -33,23 +33,23 @@ showCollection(collection); // Tested the collection array
 function findByArtist(artist) {
     let artistSearch = [];
 
-    for (let i = 0; i < collection.length; i++) {
-        if (artist === collection[i].artist){
-            artistSearch.push(collection[i]);    
-            // return artistSearch; //Why is that if I include this return it doesn't show both albums for J Cole   
+//     for (let i = 0; i < collection.length; i++) {
+//         if (artist === collection[i].artist){
+//             artistSearch.push(collection[i]);    
+//             // return artistSearch; //Why is that if I include this return it doesn't show both albums for J Cole   
+//         }        
+//     }
+//         return artistSearch;
+// }
+
+    for (let album of collection){ 
+        if (artist === album.artist){
+            artistSearch.push(album);
+            // return artistSearch; //Why is that if I include this return it doesn't show both albums for J Cole           
         }        
     }
-        return artistSearch;
-}
-
-    // for (album of collection){ 
-    //     if (artist === album.artist){
-    //         artistSearch.push(album);
-    //         return artistSearch;
-    //     }        
-    // }
-    // return artistSearch;
-// }    
+    return artistSearch;
+}    
 
 console.log(findByArtist('J Cole')); 
 console.log(findByArtist('Taylor Swift')); 
@@ -63,25 +63,27 @@ function search(artist, year){
         year: year
     }
 
-    for (let i = 0; i < collection.length; i++) {
-        if (searchCriteria.artist === collection[i].artist) {
-            searchArray.push(collection[i].artist);
-        } if (searchCriteria.year === collection[i].yearPublished){
-            searchArray.push(collection[i].yearPublished);
+    // for (let i = 0; i < collection.length; i++) {
+    //     if (searchCriteria.artist === collection[i].artist) {
+    //         searchArray.push(collection[i].artist);
+    //     } if (searchCriteria.year === collection[i].yearPublished){
+    //         searchArray.push(collection[i].yearPublished);
+    //     } if (searchCriteria.artist === undefined && searchCriteria.year === undefined){
+    //         return collection;
+    //     }
+    // }
+    // return searchArray;
+// }
+
+    for (let album of collection){ //fixed my for of loop and used let 
+        if (artist === album.artist && year === album.yearPublished){
+        searchArray.push(album); 
         } if (searchCriteria.artist === undefined && searchCriteria.year === undefined){
-            return collection;
-        }
+                    return collection;
+        }              
     }
     return searchArray;
 }
-
-//     for (album of collection){
-//         if (artist === album.artist && year === album.yearPublished){
-//         searchArray.push(album); 
-//         }   
-//     }
-//     return searchArray;
-// }
 
 
 console.log(search('J Cole', '2014')); //test to see if returns items matched
