@@ -72,6 +72,7 @@ function search(artist, year){
         }
     }
     return searchArray;
+}
 
 //     for (album of collection){
 //         if (artist === album.artist && year === album.yearPublished){
@@ -85,13 +86,3 @@ function search(artist, year){
 console.log(search('J Cole', '2014')); //test to see if returns items matched
 console.log(search('Ray Charles', '1957')); // test to see if no result, returns empty array
 console.log(search()); //test to see if it returns collection 
-
-
-
-
-
-
-
-
-
-
