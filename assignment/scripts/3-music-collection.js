@@ -57,24 +57,35 @@ console.log(findByArtist('Jimmy Eat World'));
 
 function search(artist, year){
     let searchArray = [];
-    // let searchObject = {
-    //     artist: artist,
-    //     year: year,
-    // }
-
-    for (album of collection) {
-        if (artist === album.artist && year === album.yearPublished){
-        searchArray.push(album);
-        return searchArray;
-    }    
-        else  if(artist === undefined && year === undefined){
-            return searchArray;
-        }
-
+    let searchCriteria = {
+        artist: artist,
+        year: year
     }
-}
 
-console.log(search('J Cole', '2009'));
+    for (let i = 0; i < collection.length; i++) {
+        if (searchCriteria.artist === collection[i].artist) {
+            searchArray.push(collection[i].artist);
+        } if (searchCriteria.year === collection[i].yearPublished){
+            searchArray.push(collection[i].yearPublished);
+        } if (searchCriteria.artist === undefined && searchCriteria.year === undefined){
+            return collection;
+        }
+    }
+    return searchArray;
+
+//     for (album of collection){
+//         if (artist === album.artist && year === album.yearPublished){
+//         searchArray.push(album); 
+//         }   
+//     }
+//     return searchArray;
+// }
+
+
+console.log(search('J Cole', '2014')); //test to see if returns items matched
+console.log(search('Ray Charles', '1957')); // test to see if no result, returns empty array
+console.log(search()); //test to see if it returns collection 
+
 
 
 
