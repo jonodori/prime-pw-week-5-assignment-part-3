@@ -9,16 +9,17 @@ function addToCollection(title, artist, yearPublished){
         yearPublished: yearPublished,
     }
 
-    collection.push(album);
-    return collection;
+    collection.push(album); 
+    return album; //added return to see if it gets added to the collection via console log
 }
 
-console.log(addToCollection('The Life of Pablo', 'Kanye West', '2016'));
+console.log(addToCollection('The Life of Pablo', 'Kanye West', '2016')); 
 console.log(addToCollection('The Warm Up', 'J Cole', '2009'));
 console.log(addToCollection('Red', 'Taylor Swift', '2021'));
 console.log(addToCollection('Justice', 'Justin Bieber', '2021'));
-console.log(addToCollection('Forest Hills Drive', 'J cole', '2014'));
+console.log(addToCollection('Forest Hills Drive', 'J Cole', '2014'));
 console.log(addToCollection('25', 'Adele', '2015'));
+console.log(collection);
 
 function showCollection(array){
     console.log(array.length);
@@ -32,25 +33,25 @@ showCollection(collection); // Tested the collection array
 function findByArtist(artist) {
     let artistSearch = [];
 
-//     for (let i = 0; i < collection.length; i++) {
-//         if (artist === collection[i].artist){
-//             artistSearch.push(collection[i]);    
-//             return artistSearch;        
-//         }        
-//     }
-//         return artistSearch;
-// }
-
-    for (album of collection){ 
-        if (artist === album.artist){
-            artistSearch.push(album);
-            return artistSearch;
+    for (let i = 0; i < collection.length; i++) {
+        if (artist === collection[i].artist){
+            artistSearch.push(collection[i]);    
+            // return artistSearch; //Why is that if I include this return it doesn't show both albums for J Cole   
         }        
     }
-    return artistSearch;
-}    
+        return artistSearch;
+}
 
-console.log(findByArtist('Kanye West')); 
+    // for (album of collection){ 
+    //     if (artist === album.artist){
+    //         artistSearch.push(album);
+    //         return artistSearch;
+    //     }        
+    // }
+    // return artistSearch;
+// }    
+
+console.log(findByArtist('J Cole')); 
 console.log(findByArtist('Taylor Swift')); 
 console.log(findByArtist('Jimmy Eat World'));
 
